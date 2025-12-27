@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Mei</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #2aa6a6;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* FLOATING DOTS */
+        .dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.45);
+            border-radius: 50%;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(-10vh);
+                opacity: 1;
+            }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            z-index: 1;
+            animation: fadeIn 0.8s ease;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+            color: #0b5f5f;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            color: #0b5f5f;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 15px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            background-color: white;
+            color: #2aa6a6;
+            font-weight: bold;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* LETTER BOX */
+        .letter-box {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            animation: fadeIn 0.6s ease;
+            z-index: 1;
+        }
+
+        .letter-box h2 {
+            color: #2aa6a6;
+            margin-bottom: 20px;
+        }
+
+        .letter-box p {
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
+            text-align: left;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MAIN MENU -->
+    <div class="container" id="menu">
+        <h1>HELLO MEI!!!!!</h1>
+        <p>Do you wanna see your letter?</p>
+
+        <div class="buttons">
+            <button onclick="showLetter()">YES</button>
+            <button onclick="showNoPage()">NO</button>
+        </div>
+    </div>
+
+    <!-- NO PAGE -->
+    <div class="container hidden" id="noPage">
+        <h1>Hehe 👀</h1>
+        <p>I promise you'll like it</p>
+
+        <div class="buttons">
+            <button onclick="goBack()">GO BACK</button>
+        </div>
+    </div>
+
+    <!-- LETTER PAGE -->
+    <div class="letter-box hidden" id="letterPage">
+        <h2>Dear Mei,</h2>
+
+<p>
+HELLOO MEII!! I know you felt sad because I didn’t send you any letter yet, but here is your surprise!! hehe.
+Making this letter for our VERY FIRST MONTH being friends, it's a very special day for me kasi knowing someone
+like you, I learn a lot while also being chill with you.
+</p>
+
+<p>
+Thank you, and I mean, THANK YOU!! for coming into my life. All my life, I thought liking someone was just
+“eh, it’s just a person,” but now that I met you, it’s different. I get to know myself even more, I learn
+while also having fun.
+</p>
+
+<p>
+You entering my life was so sudden, and that’s what makes it perfect. Maybe fate decided that it was time
+for us to meet and here we are!! I love listening to your talks even though sometimes I really don’t know
+what to reply. I listen carefully and understand.
+</p>
+
+<p>
+I honestly like the way how you treat me. You show your true self. you don’t have to act perfect, because
+for me, you are already perfect just the way you are. That warm feeling when we’re on a call, listening
+to you while you tell me everything that’s going on in your mind I just smile and giggle knowing you trust
+me fully.
+</p>
+
+<p>
+I have lots of pagkukulang or that’s how you say it. Making essays isn’t really my thing, but for you,
+I will do it. I will learn just to see you smile and be happy. I sometimes black out and my structure
+is bad, but I WILL TRY TO MAKE IT AS MEANINGFUL AS IT IS HEHEHE.
+</p>
+
+<p>
+BTW, before I end this letter, I’m sorry it took so long. Making a website is VERY brain-wrecking. I was
+searching how to do this part for HOURS and got super stuck. HUHUHU SORRY.
+</p>
+
+<p>
+But anyway… thank you so much. And I mean, thank you for entering my life. More months to go.
+HAPPY MONTHSARY, MEI!!
+</p>
+
+
+        <div class="buttons">
+            <button onclick="goBack()">BACK</button>
+        </div>
+    </div>
+
+    <script>
+        function showNoPage() {
+            hideAll();
+            document.getElementById("noPage").classList.remove("hidden");
+        }
+
+        function showLetter() {
+            hideAll();
+            document.getElementById("letterPage").classList.remove("hidden");
+        }
+
+        function goBack() {
+            hideAll();
+            document.getElementById("menu").classList.remove("hidden");
+        }
+
+        function hideAll() {
+            document.getElementById("menu").classList.add("hidden");
+            document.getElementById("noPage").classList.add("hidden");
+            document.getElementById("letterPage").classList.add("hidden");
+        }
+
+        /* CREATE FLOATING DOTS */
+        const dotCount = 30;
+        for (let i = 0; i < dotCount; i++) {
+            const dot = document.createElement("div");
+            dot.classList.add("dot");
+            dot.style.left = Math.random() * 100 + "vw";
+            dot.style.animationDuration = 5 + Math.random() * 5 + "s";
+            dot.style.animationDelay = Math.random() * 5 + "s";
+            dot.style.width = dot.style.height = 4 + Math.random() * 6 + "px";
+            document.body.appendChild(dot);
+        }
+    </script>
+
+</body>
+</html>
